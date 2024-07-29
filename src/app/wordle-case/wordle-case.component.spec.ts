@@ -1,9 +1,9 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { WordleCaseComponent } from './wordle-case.component';
-import {By} from "@angular/platform-browser";
+import { WordleCaseComponent } from "./wordle-case.component";
+import { By } from "@angular/platform-browser";
 
-describe('WordleCaseComponent', () => {
+describe("WordleCaseComponent", () => {
   let component: WordleCaseComponent;
   let fixture: ComponentFixture<WordleCaseComponent>;
 
@@ -11,65 +11,70 @@ describe('WordleCaseComponent', () => {
     await TestBed.configureTestingModule({
       imports: [WordleCaseComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(WordleCaseComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 
   it("Quand le validation state est 'bad', la classe retournée est 'bad-letter'", () => {
-    component.validationState = 'bad'
+    component.validationState = "bad";
     fixture.detectChanges();
-    expect(component.getClassValidationState()).toBe('bad-letter')
-  })
+    expect(component.getClassValidationState()).toBe("bad-letter");
+  });
 
   it("Quand le validation state est 'bad-placed', la classe retournée est 'bad-placed-letter'", () => {
-    component.validationState = 'bad-placed'
+    component.validationState = "bad-placed";
     fixture.detectChanges();
-    expect(component.getClassValidationState()).toBe('bad-placed-letter')
-  })
+    expect(component.getClassValidationState()).toBe("bad-placed-letter");
+  });
 
   it("Quand le validation state est 'good', la classe retournée est 'good-letter'", () => {
-    component.validationState = 'good'
+    component.validationState = "good";
     fixture.detectChanges();
-    expect(component.getClassValidationState()).toBe('good-letter')
-  })
+    expect(component.getClassValidationState()).toBe("good-letter");
+  });
 
   it("Quand je défini une lettre dans une case elle s'affiche", () => {
-    const lettre = 'A'
-    component.letter = lettre
+    const lettre = "A";
+    component.letter = lettre;
     fixture.detectChanges();
 
-    expect(fixture.debugElement.query(By.css('.wordle-letter')).nativeElement.textContent)
-      .toContain(lettre)
-  })
+    expect(fixture.debugElement.query(By.css(".wordle-letter")).nativeElement.textContent)
+      .toContain(lettre);
+  });
+
+  it("Quand aucune lettre n'est défini rien s'affiche", () => {
+    expect(fixture.debugElement.query(By.css(".wordle-letter")).nativeElement.textContent.trim())
+      .toBe("");
+  });
 
   it("Quand la lettre est bonne, elle a le style associé à une bonne lettre", () => {
-    component.letter = 'A'
-    component.validationState = 'good'
+    component.letter = "A";
+    component.validationState = "good";
     fixture.detectChanges();
-    const element = fixture.debugElement.query(By.css('.good-letter')).nativeElement
-    expect(element).toBeTruthy()
-  })
+    const element = fixture.debugElement.query(By.css(".good-letter")).nativeElement;
+    expect(element).toBeTruthy();
+  });
 
   it("Quand la lettre est mal placée, elle a le style associé à une lettre mal placée", () => {
-    component.letter = 'A'
-    component.validationState = 'bad-placed'
+    component.letter = "A";
+    component.validationState = "bad-placed";
     fixture.detectChanges();
-    const element = fixture.debugElement.query(By.css('.bad-placed-letter')).nativeElement
-    expect(element).toBeTruthy()
-  })
+    const element = fixture.debugElement.query(By.css(".bad-placed-letter")).nativeElement;
+    expect(element).toBeTruthy();
+  });
 
   it("Quand la lettre est mauvaise, elle a le style associé à une lettre mauvaise", () => {
-    component.letter = 'A'
-    component.validationState = 'bad'
+    component.letter = "A";
+    component.validationState = "bad";
     fixture.detectChanges();
-    const element = fixture.debugElement.query(By.css('.bad-letter')).nativeElement
-    expect(element).toBeTruthy()
-  })
+    const element = fixture.debugElement.query(By.css(".bad-letter")).nativeElement;
+    expect(element).toBeTruthy();
+  });
 });

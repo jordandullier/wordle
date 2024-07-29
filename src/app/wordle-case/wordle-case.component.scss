@@ -1,22 +1,25 @@
-.wordle-letter{
+.wordle-letter {
 
   padding: 1em;
-  width: 1em;
+  min-width: 1em;
+  display: inline-block;
+  height: 1em;
   text-align: center;
   border: 1px solid black;
+  font-weight: bold;
 
-  &.bad-letter{
+  &.bad-letter {
     background-color: #b61818;
     color: white;
   }
 
-  &.bad-placed-letter{
-    background-color: #9f9f29;
+  &.bad-placed-letter {
+    background-color: #e3cd0d;
     color: white;
   }
 
-  &.good-letter{
-    background-color: #08814e;
+  &.good-letter {
+    background-color: #11b257;
     color: white;
   }
 }

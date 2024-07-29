@@ -1,0 +1,21 @@
+<form
+  class="form"
+  (ngSubmit)="onPropositionSubmit()"
+>
+  <input
+    type="text"
+    name="proposition"
+    [(ngModel)]="proposition"
+  >
+  <button class="submit-form">Submit</button>
+</form>
+<div class="game-wordle">
+  @for (line of defineGridStartup(); track $index) {
+    <app-wordle-line [lineLetters]="line" />
+  }
+</div>
+<div class="game-wordle-result">
+  @if (tries === linesCount) {
+    PERDU
+  }
+</div>

@@ -10,10 +10,10 @@ export default meta;
 type Story = StoryObj<WordleCaseComponent>;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Undefined: Story = {
+export const Empty: Story = {
   args: {
-    letter: 'A',
-    validationState: 'undefined'
+    letter: '',
+    validationState: 'empty'
   },
 };
 

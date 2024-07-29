@@ -1,0 +1,8 @@
+<div class="line-wordle">
+  @for (letter of lineLetters; track $index) {
+    <app-wordle-case
+      [letter]="letter.letter"
+      [validationState]="letter.validationState"
+    />
+  }
+</div>
